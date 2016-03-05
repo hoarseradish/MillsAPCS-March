@@ -1,9 +1,9 @@
 
 /**
- * Write a description of class Cow here.
+ * cow implementation of Animal
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author (Gavin Moy) 
+ * @version (3/5/16)
  */
 public class Cow implements Animal
 {

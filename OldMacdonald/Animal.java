@@ -1,9 +1,9 @@
 
 /**
- * Write a description of interface Animal here.
+ * interface for animals
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author (Gavin Moy) 
+ * @version (3/5/16)
  */
 public interface Animal
 {
