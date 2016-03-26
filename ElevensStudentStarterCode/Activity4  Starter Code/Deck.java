@@ -1,7 +1,7 @@
-import java.util.List;
-import java.util.ArrayList;
+import java.util.*;
 
 /**
+ * Gavin Moy 3/25/16
  * The Deck class represents a shuffled deck of cards.
  * It provides several operations including
  *      initialize, shuffle, deal, and check if empty.
@@ -62,7 +62,14 @@ public class Deck {
 	 * and reset the size to represent the entire deck.
 	 */
 	public void shuffle() {
-		/* *** TO BE IMPLEMENTED IN ACTIVITY 4 *** */
+	    size = cards.size();
+		Random ran = new Random();
+        for(int i = cards.size()-1; i>0; i--) {
+            int r = ran.nextInt(i); 
+            Card temp = cards.get(i);
+            cards.set(i, cards.get(r));
+            cards.set(r, temp);
+          }
 	}
 
 	/**
@@ -85,32 +92,32 @@ public class Deck {
 	 */
 	@Override
 	public String toString() {
-		String rtn = "size = " + size + "\nUndealt cards: \n";
+		String returnString = "size = " + size + "\nUndealt cards: \n";
 
 		for (int k = size - 1; k >= 0; k--) {
-			rtn = rtn + cards.get(k);
+			returnString = returnString + cards.get(k);
 			if (k != 0) {
-				rtn = rtn + ", ";
+				returnString = returnString + ", ";
 			}
 			if ((size - k) % 2 == 0) {
 				// Insert carriage returns so entire deck is visible on console.
-				rtn = rtn + "\n";
+				returnString = returnString + "\n";
 			}
 		}
 
-		rtn = rtn + "\nDealt cards: \n";
+		returnString = returnString + "\nDealt cards: \n";
 		for (int k = cards.size() - 1; k >= size; k--) {
-			rtn = rtn + cards.get(k);
+			returnString = returnString + cards.get(k);
 			if (k != size) {
-				rtn = rtn + ", ";
+				returnString = returnString + ", ";
 			}
 			if ((k - cards.size()) % 2 == 0) {
 				// Insert carriage returns so entire deck is visible on console.
-				rtn = rtn + "\n";
+				returnString = returnString + "\n";
 			}
 		}
 
-		rtn = rtn + "\n";
-		return rtn;
+		returnString = returnString + "\n";
+		return returnString;
 	}
 }
